@@ -1,0 +1,203 @@
+.invite-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.invite-container01 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-image: url("/playground_assets/78786%20%5B2%5D-1500h.png");
+  background-position: center;
+}
+.invite-container02 {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.invite-container03 {
+  flex: 0 0 auto;
+  width: 1200px;
+  height: 830px;
+  display: flex;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  align-items: flex-start;
+  border-radius: 40px;
+  background-color: #fbfbfb;
+}
+.invite-container04 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-gray-white);
+}
+.invite-container05 {
+  flex: 1;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.invite-container06 {
+  gap: 40px;
+  flex: 0 0 auto;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.invite-container07 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: space-between;
+}
+.invite-container08 {
+  display: flex;
+  align-items: center;
+}
+.invite-image {
+  width: 50px;
+  object-fit: cover;
+}
+.invite-text {
+  color: rgb(81, 69, 101);
+  font-size: 25px;
+  font-style: normal;
+  font-family: Rubik;
+  font-weight: 400;
+}
+.invite-navlink {
+  display: contents;
+}
+.invite-icon {
+  fill: var(--dl-color-primary-lila);
+  width: 30px;
+  cursor: pointer;
+  height: 30px;
+  text-decoration: none;
+}
+.invite-text01 {
+  color: var(--dl-color-primary-txt);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+}
+.invite-container09 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.invite-container10 {
+  gap: 10px;
+  width: 228px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.invite-icon2 {
+  fill: var(--dl-color-primary-txt);
+  width: 155px;
+  height: 155px;
+  opacity: 0.7;
+}
+.invite-text02 {
+  color: var(--dl-color-primary-txt);
+  opacity: 0.5;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.invite-container11 {
+  gap: 20px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.invite-navlink1 {
+  display: contents;
+}
+.invite-component2 {
+  text-decoration: none;
+}
+.invite-container12 {
+  gap: 20px;
+  flex: 0 0 auto;
+  width: 497px;
+  height: 100%;
+  display: flex;
+  box-shadow: -5px 0px 10px 0px rgba(136, 27, 171, 0.4);
+  align-items: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/playground_assets/neues%20projekt%20%5B3%5D-900h.png");
+  background-position: center;
+}
+.invite-container13 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  flex-direction: column;
+  padding-bottom: 20px;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.17);
+}
+.invite-container14 {
+  gap: 40px;
+  flex: 0 0 auto;
+  width: 317px;
+  display: flex;
+  flex-direction: column;
+}
+.invite-container15 {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.invite-text03 {
+  color: var(--dl-color-gray-white);
+  font-size: 22px;
+}
+.invite-text04 {
+  color: var(--dl-color-gray-white);
+  opacity: 0.8;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+.invite-container16 {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  justify-content: center;
+  background-color: var(--dl-color-primary-white);
+}
+.invite-text12 {
+  color: var(--dl-color-primary-lila);
+}
