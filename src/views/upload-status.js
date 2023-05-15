@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
@@ -8,7 +8,27 @@ import Notification from '../components/notification'
 import Button from '../components/button'
 import './upload-status.css'
 
+
+
 const UploadStatus = (props) => {
+
+  const fileResult = JSON.parse(localStorage.getItem("fileResult"))
+  let statusTxt = ''
+  let downloadStatus = false
+
+  if (fileResult.failed >= 1) {
+    downloadStatus = true
+    statusTxt = `${fileResult.failed} contacts detected as incorrect. Please edit your file and upload it again.`
+  } 
+  if (fileResult.failed == 1) {
+    downloadStatus = true
+    statusTxt = `${fileResult.failed} contact detected as incorrect. Please edit your file and upload it again.`
+  }
+  if (fileResult.failed == 0) {
+    downloadStatus = false
+    statusTxt = `All their contact are fully verified. No data errors were found.`
+  }
+
   return (
     <div className="upload-status-container">
       <Helmet>
@@ -19,7 +39,7 @@ const UploadStatus = (props) => {
         />
       </Helmet>
       <div className="upload-status-container01">
-        <TopBar rootClassName="top-bar-root-class-name2"></TopBar>
+        <TopBar menu="status" rootClassName="top-bar-root-class-name2"></TopBar>
         <div className="upload-status-container02">
           <div className="upload-status-container03">
             <div className="upload-status-container04">
@@ -46,9 +66,9 @@ const UploadStatus = (props) => {
                   <span className="upload-status-text01">Uploads Status.</span>
                   <div className="upload-status-container09">
                     <div className="upload-status-container10">
-                      <span className="upload-status-text02">1328</span>
+                      <span className="upload-status-text02">{fileResult.success}</span>
                       <span className="upload-status-text03">/</span>
-                      <span className="upload-status-text04">1543</span>
+                      <span className="upload-status-text04">{fileResult.success + fileResult.failed}</span>
                     </div>
                     <div className="upload-status-container11">
                       <div className="upload-status-container12"></div>
@@ -56,16 +76,24 @@ const UploadStatus = (props) => {
                     </div>
                   </div>
                   <Notification
-                    text="215 contacts detected as incorrect. Please edit your file and upload it again."
+                    isVisible
+                    text={statusTxt}
+                    downloadStatus={downloadStatus}
                     button_text="Download failed contacts!"
                     rootClassName="notification-root-class-name1"
                   ></Notification>
                   <div className="upload-status-container14">
                     <Button
+                      goTo="favorite"
+                      icon="right"
                       text="Next"
                       rootClassName="button-root-class-name4"
-                    ></Button>
+                    >
+                    </Button>
                     <Button
+                      goTo="upload"
+                      icon="upload"
+                      blanc="true"
                       text="New Upload"
                       rootClassName="button-root-class-name5"
                     ></Button>

@@ -17,7 +17,7 @@ const CookieConfirm = (props) => {
         />
       </Helmet>
       <div className="cookie-confirm-container01">
-        <TopBar rootClassName="top-bar-root-class-name5"></TopBar>
+        <TopBar menu="cookie" rootClassName="top-bar-root-class-name5"></TopBar>
         <div className="cookie-confirm-container02">
           <div className="cookie-confirm-container03">
             <div className="cookie-confirm-container04">
@@ -47,10 +47,15 @@ const CookieConfirm = (props) => {
                   </div>
                   <div className="cookie-confirm-container09">
                     <Button
+                      goTo="complete"
+                      icon="right"
                       text="Next"
                       rootClassName="button-root-class-name9"
                     ></Button>
                     <Button
+                      goTo="cookie-more"
+                      icon="more"
+                      blanc="true"
                       text="Add more"
                       rootClassName="button-root-class-name10"
                     ></Button>

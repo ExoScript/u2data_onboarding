@@ -15,7 +15,7 @@ const Invite = (props) => {
         <meta property="og:title" content="Invite - Up2Data - Onboarding" />
       </Helmet>
       <div className="invite-container01">
-        <TopBar rootClassName="top-bar-root-class-name8"></TopBar>
+        <TopBar menu="cookie" rootClassName="top-bar-root-class-name8"></TopBar>
         <div className="invite-container02">
           <div className="invite-container03">
             <div className="invite-container04">
@@ -50,11 +50,16 @@ const Invite = (props) => {
                   </div>
                   <div className="invite-container11">
                     <Button
+                      goTo="finish"
+                      icon="right"
                       text="Next"
                       rootClassName="button-root-class-name12"
                     ></Button>
                     <Link to="/cookie-more" className="invite-navlink1">
                       <Button
+                        blanc
+                        goTo="cookie-more"
+                        icon="more"
                         text="Invite more"
                         rootClassName="button-root-class-name13"
                         className="invite-component2"

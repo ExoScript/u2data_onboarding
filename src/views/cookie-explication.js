@@ -18,7 +18,7 @@ const CookieExplication = (props) => {
         />
       </Helmet>
       <div className="cookie-explication-container01">
-        <TopBar rootClassName="top-bar-root-class-name9"></TopBar>
+        <TopBar menu="cookie" rootClassName="top-bar-root-class-name9"></TopBar>
         <div className="cookie-explication-container02">
           <div className="cookie-explication-container03">
             <div className="cookie-explication-container04">
@@ -49,8 +49,7 @@ const CookieExplication = (props) => {
                       </div>
                       <span className="cookie-explication-text04">
                         {' '}
-                        Open a new tab and visit the website whose cookie
-                        you&apos;re looking for.
+                        Open a new tab and visit https://www.LinkedIn.com
                       </span>
                     </div>
                     <div className="cookie-explication-container12">
@@ -170,6 +169,7 @@ const CookieExplication = (props) => {
                   </div>
                   <Link to="/cookie" className="cookie-explication-navlink">
                     <Button
+                      icon="left"
                       rootClassName="button-root-class-name14"
                       text="Back"
                       className="cookie-explication-component1"

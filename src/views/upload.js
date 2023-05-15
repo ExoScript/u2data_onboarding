@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
 
@@ -8,7 +8,12 @@ import Notification from '../components/notification'
 import Button from '../components/button'
 import './upload.css'
 
+import Dropzone from 'react-dropzone'
+import checkFile from '../functions/fileValidation'
+
+
 const Upload = (props) => {
+  const history = useHistory()
   return (
     <div className="upload-container">
       <Helmet>
@@ -16,7 +21,7 @@ const Upload = (props) => {
         <meta property="og:title" content="Upload - Up2Data - Onboarding" />
       </Helmet>
       <div className="upload-container01">
-        <TopBar rootClassName="top-bar-root-class-name1"></TopBar>
+        <TopBar menu="upload" rootClassName="top-bar-root-class-name1"></TopBar>
         <div className="upload-container02">
           <div className="upload-container03">
             <div className="upload-container04">
@@ -38,7 +43,21 @@ const Upload = (props) => {
                     </Link>
                   </div>
                   <span className="upload-text01">Upload your Contacts.</span>
-                  <div className="upload-container09">
+                  <div style={{ position: "relative", cursor: "pointer" }} className="upload-container09">
+                  <Dropzone
+                        onDrop={async (acceptedFiles) => {
+                          const file = await checkFile(acceptedFiles);
+                          if (file) {
+                            history.push('/upload-status');
+                          }
+                        }}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()} style={{ position: "absolute", zIndex: "101", height: "100%", width: "100%" }} className="upload-text12">
+                            <input {...getInputProps()} />
+                          </div>
+                        )}
+                      </Dropzone>
                     <svg viewBox="0 0 1024 1024" className="upload-icon2">
                       <path d="M469.333 614.997v281.003c0 23.552 19.115 42.667 42.667 42.667s42.667-19.115 42.667-42.667v-281.003l97.835 97.835c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331l-170.667-170.667c-4.096-4.096-8.789-7.168-13.824-9.259-5.205-2.176-10.795-3.243-16.341-3.243-10.923 0-21.845 4.181-30.165 12.501l-170.667 170.667c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0zM890.411 822.101c62.037-33.835 104.576-89.685 123.051-152.491s13.013-132.779-20.821-194.816c-28.971-53.12-74.112-91.989-126.293-113.621-30.891-12.8-64.171-19.584-98.048-19.84h-22.485c-30.933-87.765-91.477-158.208-167.125-202.752-84.608-49.835-188.373-67.456-291.029-40.917s-184.875 92.245-234.752 176.853-67.456 188.373-40.917 291.029c15.872 61.312 45.781 115.627 84.267 158.421 15.744 17.536 42.752 18.944 60.245 3.2s18.944-42.752 3.2-60.245c-29.355-32.64-52.693-74.667-65.109-122.752-20.651-79.872-6.997-160.469 31.829-226.347s102.699-116.907 182.571-137.557 160.469-6.997 226.347 31.829 116.907 102.699 137.557 182.571c4.949 18.56 21.589 32 41.344 32h53.461c22.869 0.171 45.269 4.736 65.92 13.312 34.773 14.421 64.768 40.235 84.053 75.648 22.571 41.387 26.24 87.936 13.867 129.877s-40.661 79.104-82.048 101.632c-20.693 11.264-28.331 37.205-17.024 57.899s37.205 28.331 57.899 17.024z"></path>
                     </svg>
@@ -47,18 +66,38 @@ const Upload = (props) => {
                         Drag and drop your files here
                       </span>
                       <span className="upload-text03">
-                        Files supported: CSV, TXT, XLSX 
+                        Files supported: CSV, TXT, XLSX
                       </span>
                     </div>
                     <div className="upload-dragdrop"></div>
                   </div>
                   <Notification rootClassName="notification-root-class-name5"></Notification>
                   <div className="upload-container11">
+                    <div style={{ position: "relative", cursor: "pointer" }} className="upload-container11">
+                      <Dropzone
+                        onDrop={async (acceptedFiles) => {
+                          const file = await checkFile(acceptedFiles);
+                          if (file) {
+                            history.push('/upload-status');
+                          }
+                        }}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()} style={{ position: "absolute", zIndex: "100", height: "100%", width: "100%" }} className="upload-text12">
+                            <input {...getInputProps()} />
+                          </div>
+                        )}
+                      </Dropzone>
+                      <Button
+                        icon="folder"
+                        text="Browse file"
+                        rootClassName="button-root-class-name2"
+                      >
+                      </Button>
+                    </div>
                     <Button
-                      text="Browse file"
-                      rootClassName="button-root-class-name2"
-                    ></Button>
-                    <Button
+                      icon="download"
+                      blanc="true"
                       text="Download example"
                       rootClassName="button-root-class-name3"
                     ></Button>

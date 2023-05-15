@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import './top-bar.css'
 
 const TopBar = (props) => {
-  const [menu, setMenu] = useState('details')
+  const [menu, setMenu] = useState(props.menu)
   const [Language, setLanguage] = useState('English')
   return (
     <div className={`top-bar-top-bar ${props.rootClassName} `}>
@@ -85,7 +85,7 @@ const TopBar = (props) => {
                 </div>
                 <div className="top-bar-container020"></div>
               </div>
-              <span className="top-bar-text04">Favorit</span>
+              <span className="top-bar-text04">Favorite</span>
             </div>
             <div className="top-bar-container021">
               <div className="top-bar-container022">
@@ -159,7 +159,7 @@ const TopBar = (props) => {
                 </div>
                 <div className="top-bar-container045"></div>
               </div>
-              <span className="top-bar-text10">Favorit</span>
+              <span className="top-bar-text10">Favorite</span>
             </div>
             <div className="top-bar-container046">
               <div className="top-bar-container047">
@@ -233,7 +233,7 @@ const TopBar = (props) => {
                 </div>
                 <div className="top-bar-container070"></div>
               </div>
-              <span className="top-bar-text16">Favorit</span>
+              <span className="top-bar-text16">Favorite</span>
             </div>
             <div className="top-bar-container071">
               <div className="top-bar-container072">
@@ -307,7 +307,7 @@ const TopBar = (props) => {
                 </div>
                 <div className="top-bar-container095"></div>
               </div>
-              <span className="top-bar-text22">Favorit</span>
+              <span className="top-bar-text22">Favorite</span>
             </div>
             <div className="top-bar-container096">
               <div className="top-bar-container097">
@@ -326,7 +326,7 @@ const TopBar = (props) => {
             </div>
           </div>
         )}
-        {menu === 'favorit' && (
+        {menu === 'favorite' && (
           <div className="top-bar-favorit">
             <div className="top-bar-container101">
               <div className="top-bar-container102">
@@ -381,7 +381,7 @@ const TopBar = (props) => {
                 </div>
                 <div className="top-bar-container120"></div>
               </div>
-              <span className="top-bar-text28">Favorit</span>
+              <span className="top-bar-text28">Favorite</span>
             </div>
             <div className="top-bar-container121">
               <div className="top-bar-container122">
@@ -460,7 +460,7 @@ const TopBar = (props) => {
                 </div>
                 <div className="top-bar-container145"></div>
               </div>
-              <span className="top-bar-text33">Favorit</span>
+              <span className="top-bar-text33">Favorite</span>
             </div>
             <div className="top-bar-container146">
               <div className="top-bar-container147">
@@ -471,6 +471,85 @@ const TopBar = (props) => {
                 <div className="top-bar-container150"></div>
               </div>
               <span className="top-bar-text35">Cookie</span>
+            </div>
+          </div>
+        )}
+        {menu === 'complete' && (
+          <div className="top-bar-cookie">
+            <div className="top-bar-container126">
+              <div className="top-bar-container127">
+                <div className="top-bar-container128"></div>
+                <div className="top-bar-container129">
+                  <svg viewBox="0 0 1024 1024" className="top-bar-icon42">
+                    <path
+                      d="M864 128l-480 480-224-224-160 160 384 384 640-640z"
+                      className=""
+                    ></path>
+                  </svg>
+                </div>
+                <div className="top-bar-container130"></div>
+              </div>
+              <span className="top-bar-text30">Details</span>
+            </div>
+            <div className="top-bar-container131">
+              <div className="top-bar-container132">
+                <div className="top-bar-container133"></div>
+                <div className="top-bar-container134">
+                  <svg viewBox="0 0 1024 1024" className="top-bar-icon44">
+                    <path
+                      d="M864 128l-480 480-224-224-160 160 384 384 640-640z"
+                      className=""
+                    ></path>
+                  </svg>
+                </div>
+                <div className="top-bar-container135"></div>
+              </div>
+              <span className="top-bar-text31">Upload</span>
+            </div>
+            <div className="top-bar-container136">
+              <div className="top-bar-container137">
+                <div className="top-bar-container138"></div>
+                <div className="top-bar-container139">
+                  <svg viewBox="0 0 1024 1024" className="top-bar-icon46">
+                    <path
+                      d="M864 128l-480 480-224-224-160 160 384 384 640-640z"
+                      className=""
+                    ></path>
+                  </svg>
+                </div>
+                <div className="top-bar-container140"></div>
+              </div>
+              <span className="top-bar-text32">Status</span>
+            </div>
+            <div className="top-bar-container141">
+              <div className="top-bar-container142">
+                <div className="top-bar-container143"></div>
+                <div className="top-bar-container144">
+                  <svg viewBox="0 0 1024 1024" className="top-bar-icon46">
+                    <path
+                      d="M864 128l-480 480-224-224-160 160 384 384 640-640z"
+                      className=""
+                    ></path>
+                  </svg>
+                </div>
+                <div className="top-bar-container145"></div>
+              </div>
+              <span className="top-bar-text33">Favorite</span>
+            </div>
+            <div className="top-bar-container146">
+              <div className="top-bar-container147">
+                <div className="top-bar-container148"></div>
+                <div className="top-bar-container149">
+                <svg viewBox="0 0 1024 1024" className="top-bar-icon46">
+                    <path
+                      d="M864 128l-480 480-224-224-160 160 384 384 640-640z"
+                      className=""
+                    ></path>
+                  </svg>
+                </div>
+                <div className="top-bar-container150"></div>
+              </div>
+              <span className="top-bar-text33">Cookie</span>
             </div>
           </div>
         )}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
@@ -8,6 +8,46 @@ import Button from '../components/button'
 import './user-details.css'
 
 const UserDetails = (props) => {
+  const [fullName, setFullName] = useState(
+    localStorage.getItem("userName") || ""
+  );
+  const [email, setEmail] = useState(
+    localStorage.getItem("userEmail") || ""
+  );
+  const [company, setCompany] = useState(
+    localStorage.getItem("userCompany") || ""
+  );
+  const [website, setWebsite] = useState(
+    localStorage.getItem("userWebsite") || ""
+  );
+
+  useEffect(() => {
+    localStorage.setItem("userName", fullName);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userCompany", company);
+    localStorage.setItem("userWebsite", website);
+  }, [fullName, email, company, website]);
+
+  const eventChange = (event) => {
+    const id = event.target.id
+    switch (id) {
+      case 'fullName':
+        setFullName(event.target.value);
+        break;
+      case 'emailAddress':
+        setEmail(event.target.value);
+        break;
+      case 'company':
+        setCompany(event.target.value);
+        break;
+      case 'website':
+        setWebsite(event.target.value);
+        break;
+      default:
+      // code block
+    }
+  };
+
   return (
     <div className="user-details-container">
       <Helmet>
@@ -18,7 +58,7 @@ const UserDetails = (props) => {
         />
       </Helmet>
       <div className="user-details-container01">
-        <TopBar rootClassName="top-bar-root-class-name"></TopBar>
+        <TopBar menu="details" rootClassName="top-bar-root-class-name"></TopBar>
         <div className="user-details-container02">
           <div className="user-details-container03">
             <div className="user-details-container04">
@@ -46,8 +86,10 @@ const UserDetails = (props) => {
                   <div className="user-details-container09">
                     <span className="user-details-text02">Full Name</span>
                     <input
+                      onChange={eventChange}
+                      id="fullName"
                       type="text"
-                      value="Daniel Deutsch"
+                      value={fullName}
                       className="user-details-textinput input"
                     />
                     <div className="user-details-container10"></div>
@@ -55,8 +97,10 @@ const UserDetails = (props) => {
                   <div className="user-details-container11">
                     <span className="user-details-text03">Email</span>
                     <input
+                      onChange={eventChange}
+                      id="emailAddress"
                       type="text"
-                      value="daniel@heydata.eu"
+                      value={email}
                       className="user-details-textinput1 input"
                     />
                     <div className="user-details-container12"></div>
@@ -64,8 +108,10 @@ const UserDetails = (props) => {
                   <div className="user-details-container13">
                     <span className="user-details-text04">Company</span>
                     <input
+                      onChange={eventChange}
+                      id="company"
                       type="text"
-                      value="Heydata GmbH"
+                      value={company}
                       className="user-details-textinput2 input"
                     />
                     <div className="user-details-container14"></div>
@@ -73,14 +119,18 @@ const UserDetails = (props) => {
                   <div className="user-details-container15">
                     <span className="user-details-text05">Website</span>
                     <input
+                      onChange={eventChange}
+                      id="website"
                       type="text"
-                      value="https://heydata.eu"
+                      value={website}
                       className="user-details-textinput3 input"
                     />
                     <div className="user-details-container16"></div>
                   </div>
                   <Button
                     text="Next"
+                    icon="right"
+                    goTo="upload"
                     rootClassName="button-root-class-name"
                   ></Button>
                 </div>

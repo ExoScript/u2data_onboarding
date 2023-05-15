@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
@@ -9,6 +9,28 @@ import Button from '../components/button'
 import './cookie.css'
 
 const Cookie = (props) => {
+  const [sessionCookie, setSessionCookie] = useState(
+    localStorage.getItem("sessionCookie") || ""
+  );
+  useEffect(() => {
+    localStorage.setItem("sessionCookie", sessionCookie);
+  }, [sessionCookie]);
+
+  const eventChange = (event) => {
+    setSessionCookie(event.target.value)
+  };
+
+  const test = ()=>{
+    fetch(url, {
+      method: 'POST',
+      body: formData
+  })
+      .then(response => response.text())
+      .then(data => {
+          console.log(data)
+      })
+      .catch(error => console.error(error));
+  }
   return (
     <div className="cookie-container">
       <Helmet>
@@ -16,7 +38,7 @@ const Cookie = (props) => {
         <meta property="og:title" content="Cookie - Up2Data - Onboarding" />
       </Helmet>
       <div className="cookie-container01">
-        <TopBar rootClassName="top-bar-root-class-name4"></TopBar>
+        <TopBar menu="cookie" rootClassName="top-bar-root-class-name4"></TopBar>
         <div className="cookie-container02">
           <div className="cookie-container03">
             <div className="cookie-container04">
@@ -51,8 +73,9 @@ const Cookie = (props) => {
                       </Link>
                     </div>
                     <input
+                      onChange={eventChange}
+                      value={sessionCookie}
                       type="text"
-                      name="almeida@up2data.io"
                       className="cookie-textinput input"
                     />
                     <div className="cookie-container11"></div>
@@ -60,10 +83,16 @@ const Cookie = (props) => {
                   <Notification rootClassName="notification-root-class-name3"></Notification>
                   <div className="cookie-container12">
                     <Button
+                      goTo="checkCookie"
+                      icon="right"
                       text="Check Cookie"
                       rootClassName="button-root-class-name7"
                     ></Button>
                     <Button
+                    onClick={test}
+                      goTo="cookie-more"
+                      icon="more"
+                      blanc="true"
                       text="Invite"
                       rootClassName="button-root-class-name8"
                     ></Button>

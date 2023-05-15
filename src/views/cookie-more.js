@@ -16,7 +16,7 @@ const CookieMore = (props) => {
         <meta property="og:title" content="CookieMore - Up2Data - Onboarding" />
       </Helmet>
       <div className="cookie-more-container01">
-        <TopBar rootClassName="top-bar-root-class-name7"></TopBar>
+        <TopBar menu="cookie" rootClassName="top-bar-root-class-name7"></TopBar>
         <div className="cookie-more-container02">
           <div className="cookie-more-container03">
             <div className="cookie-more-container04">
@@ -42,28 +42,28 @@ const CookieMore = (props) => {
                   </span>
                   <div className="cookie-more-container09">
                     <div className="cookie-more-container10">
-                      <span className="cookie-more-text02">Full name</span>
+                      <span className="cookie-more-text02">Full Name</span>
                     </div>
                     <input
                       type="text"
-                      name="almeida@up2data.io"
                       className="cookie-more-textinput input"
                     />
                     <div className="cookie-more-container11"></div>
                   </div>
                   <div className="cookie-more-container12">
                     <div className="cookie-more-container13">
-                      <span className="cookie-more-text03">Email address</span>
+                      <span className="cookie-more-text03">Email Address</span>
                     </div>
                     <input
                       type="text"
-                      name="almeida@up2data.io"
                       className="cookie-more-textinput1 input"
                     />
                     <div className="cookie-more-container14"></div>
                   </div>
                   <Notification rootClassName="notification-root-class-name4"></Notification>
                   <Button
+                    goTo="invite"
+                    icon="email"
                     text="Invite"
                     rootClassName="button-root-class-name11"
                   ></Button>

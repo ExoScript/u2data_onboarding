@@ -16,7 +16,7 @@ const Favorite = (props) => {
         <meta property="og:title" content="Favorite - Up2Data - Onboarding" />
       </Helmet>
       <div className="favorite-container01">
-        <TopBar rootClassName="top-bar-root-class-name3"></TopBar>
+        <TopBar menu="favorite" rootClassName="top-bar-root-class-name3"></TopBar>
         <div className="favorite-container02">
           <div className="favorite-container03">
             <div className="favorite-container04">
@@ -43,29 +43,29 @@ const Favorite = (props) => {
                   <div className="favorite-container09">
                     <div className="favorite-container10">
                       <div className="favorite-container11">
-                        <Checkbox rootClassName="checkbox-root-class-name"></Checkbox>
+                        <Checkbox id="fav0" rootClassName="checkbox-root-class-name"></Checkbox>
                         <span>Sales</span>
                       </div>
                       <div className="favorite-container12">
-                        <Checkbox rootClassName="checkbox-root-class-name1"></Checkbox>
+                        <Checkbox id="fav1" rootClassName="checkbox-root-class-name1"></Checkbox>
                         <span>Marketing</span>
                       </div>
                       <div className="favorite-container13">
-                        <Checkbox rootClassName="checkbox-root-class-name2"></Checkbox>
+                        <Checkbox id="fav2" rootClassName="checkbox-root-class-name2"></Checkbox>
                         <span>Finance</span>
                       </div>
                     </div>
                     <div className="favorite-container14">
                       <div className="favorite-container15">
-                        <Checkbox rootClassName="checkbox-root-class-name9"></Checkbox>
+                        <Checkbox id="fav3" rootClassName="checkbox-root-class-name9"></Checkbox>
                         <span>HR</span>
                       </div>
                       <div className="favorite-container16">
-                        <Checkbox rootClassName="checkbox-root-class-name10"></Checkbox>
+                        <Checkbox id="fav4" rootClassName="checkbox-root-class-name10"></Checkbox>
                         <span>Legal</span>
                       </div>
                       <div className="favorite-container17">
-                        <Checkbox rootClassName="checkbox-root-class-name11"></Checkbox>
+                        <Checkbox id="fav5" rootClassName="checkbox-root-class-name11"></Checkbox>
                         <span>
                           Controlling
                           <span
@@ -78,129 +78,131 @@ const Favorite = (props) => {
                     </div>
                     <div className="favorite-container18">
                       <div className="favorite-container19">
-                        <Checkbox rootClassName="checkbox-root-class-name6"></Checkbox>
+                        <Checkbox id="fav6" rootClassName="checkbox-root-class-name6"></Checkbox>
                         <span>Compliance</span>
                       </div>
                       <div className="favorite-container20">
-                        <Checkbox rootClassName="checkbox-root-class-name7"></Checkbox>
+                        <Checkbox id="fav7" rootClassName="checkbox-root-class-name7"></Checkbox>
                         <span>Business Development</span>
                       </div>
                       <div className="favorite-container21">
-                        <Checkbox rootClassName="checkbox-root-class-name8"></Checkbox>
+                        <Checkbox id="fav8" rootClassName="checkbox-root-class-name8"></Checkbox>
                         <span>Business Intelligence</span>
                       </div>
                     </div>
                     <div className="favorite-container22">
                       <div className="favorite-container23">
-                        <Checkbox rootClassName="checkbox-root-class-name3"></Checkbox>
+                        <Checkbox id="fav9" rootClassName="checkbox-root-class-name3"></Checkbox>
                         <span>Customer Care</span>
                       </div>
                       <div className="favorite-container24">
-                        <Checkbox rootClassName="checkbox-root-class-name4"></Checkbox>
+                        <Checkbox id="fav10" rootClassName="checkbox-root-class-name4"></Checkbox>
                         <span>Office Management</span>
                       </div>
                       <div className="favorite-container25">
-                        <Checkbox rootClassName="checkbox-root-class-name5"></Checkbox>
+                        <Checkbox id="fav11" rootClassName="checkbox-root-class-name5"></Checkbox>
                         <span>Operations</span>
                       </div>
                     </div>
                     <div className="favorite-container26">
                       <div className="favorite-container27">
-                        <Checkbox rootClassName="checkbox-root-class-name18"></Checkbox>
+                        <Checkbox id="fav12" rootClassName="checkbox-root-class-name18"></Checkbox>
                         <span>Partnership</span>
                       </div>
                       <div className="favorite-container28">
-                        <Checkbox rootClassName="checkbox-root-class-name19"></Checkbox>
+                        <Checkbox id="fav13" rootClassName="checkbox-root-class-name19"></Checkbox>
                         <span>Procurement</span>
                       </div>
                       <div className="favorite-container29">
-                        <Checkbox rootClassName="checkbox-root-class-name20"></Checkbox>
+                        <Checkbox id="fav14" rootClassName="checkbox-root-class-name20"></Checkbox>
                         <span>Product</span>
                       </div>
                     </div>
                     <div className="favorite-container30">
                       <div className="favorite-container31">
-                        <Checkbox rootClassName="checkbox-root-class-name24"></Checkbox>
+                        <Checkbox id="fav15" rootClassName="checkbox-root-class-name24"></Checkbox>
                         <span>Project Management</span>
                       </div>
                       <div className="favorite-container32">
-                        <Checkbox rootClassName="checkbox-root-class-name25"></Checkbox>
+                        <Checkbox id="fav16" rootClassName="checkbox-root-class-name25"></Checkbox>
                         <span>Supply Chain</span>
                       </div>
                       <div className="favorite-container33">
-                        <Checkbox rootClassName="checkbox-root-class-name26"></Checkbox>
+                        <Checkbox id="fav17" rootClassName="checkbox-root-class-name26"></Checkbox>
                         <span>IT</span>
                       </div>
                     </div>
                     <div className="favorite-container34">
                       <div className="favorite-container35">
-                        <Checkbox rootClassName="checkbox-root-class-name21"></Checkbox>
+                        <Checkbox id="fav18" rootClassName="checkbox-root-class-name21"></Checkbox>
                         <span>Account Management</span>
                       </div>
                       <div className="favorite-container36">
-                        <Checkbox rootClassName="checkbox-root-class-name22"></Checkbox>
+                        <Checkbox id="fav19" rootClassName="checkbox-root-class-name22"></Checkbox>
                         <span>C-Level</span>
                       </div>
                       <div className="favorite-container37">
-                        <Checkbox rootClassName="checkbox-root-class-name23"></Checkbox>
+                        <Checkbox id="fav20" rootClassName="checkbox-root-class-name23"></Checkbox>
                         <span>VP</span>
                       </div>
                     </div>
                     <div className="favorite-container38">
                       <div className="favorite-container39">
-                        <Checkbox rootClassName="checkbox-root-class-name42"></Checkbox>
+                        <Checkbox id="fav21" rootClassName="checkbox-root-class-name42"></Checkbox>
                         <span>Director</span>
                       </div>
                       <div className="favorite-container40">
-                        <Checkbox rootClassName="checkbox-root-class-name43"></Checkbox>
+                        <Checkbox id="fav22" rootClassName="checkbox-root-class-name43"></Checkbox>
                         <span>Head of</span>
                       </div>
                       <div className="favorite-container41">
-                        <Checkbox rootClassName="checkbox-root-class-name44"></Checkbox>
+                        <Checkbox id="fav23" rootClassName="checkbox-root-class-name44"></Checkbox>
                         <span>Team Lead</span>
                       </div>
                     </div>
                     <div className="favorite-container42">
                       <div className="favorite-container43">
-                        <Checkbox rootClassName="checkbox-root-class-name39"></Checkbox>
+                        <Checkbox id="fav24" rootClassName="checkbox-root-class-name39"></Checkbox>
                         <span>Employee</span>
                       </div>
                       <div className="favorite-container44">
-                        <Checkbox rootClassName="checkbox-root-class-name40"></Checkbox>
+                        <Checkbox id="fav25" rootClassName="checkbox-root-class-name40"></Checkbox>
                         <span>Partner</span>
                       </div>
                       <div className="favorite-container45">
-                        <Checkbox rootClassName="checkbox-root-class-name41"></Checkbox>
+                        <Checkbox id="fav26" rootClassName="checkbox-root-class-name41"></Checkbox>
                         <span>Principle</span>
                       </div>
                     </div>
                     <div className="favorite-container46">
                       <div className="favorite-container47">
-                        <Checkbox rootClassName="checkbox-root-class-name36"></Checkbox>
+                        <Checkbox id="fav27" rootClassName="checkbox-root-class-name36"></Checkbox>
                         <span>Investor</span>
                       </div>
                       <div className="favorite-container48">
-                        <Checkbox rootClassName="checkbox-root-class-name37"></Checkbox>
+                        <Checkbox id="fav28" rootClassName="checkbox-root-class-name37"></Checkbox>
                         <span>Freelance</span>
                       </div>
                       <div className="favorite-container49">
-                        <Checkbox rootClassName="checkbox-root-class-name38"></Checkbox>
+                        <Checkbox id="fav29" rootClassName="checkbox-root-class-name38"></Checkbox>
                         <span>Coach</span>
                       </div>
                     </div>
                     <div className="favorite-container50">
                       <div className="favorite-container51">
-                        <Checkbox rootClassName="checkbox-root-class-name33"></Checkbox>
+                        <Checkbox id="fav30" rootClassName="checkbox-root-class-name33"></Checkbox>
                         <span>Consultant</span>
                       </div>
                       <div className="favorite-container52">
-                        <Checkbox rootClassName="checkbox-root-class-name34"></Checkbox>
+                        <Checkbox id="fav31" rootClassName="checkbox-root-class-name34"></Checkbox>
                         <span>Associate</span>
                       </div>
                       <div className="favorite-container53"></div>
                     </div>
                   </div>
                   <Button
+                    goTo="cookie"
+                    icon="right"
                     text="Next"
                     rootClassName="button-root-class-name6"
                   ></Button>

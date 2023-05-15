@@ -16,7 +16,7 @@ const Complete = (props) => {
         <meta property="og:title" content="Complete - Up2Data - Onboarding" />
       </Helmet>
       <div className="complete-container01">
-        <TopBar rootClassName="top-bar-root-class-name6"></TopBar>
+        <TopBar menu="complete" rootClassName="top-bar-root-class-name6"></TopBar>
         <div className="complete-container02">
           <div className="complete-container03">
             <div className="complete-container04">
@@ -49,8 +49,8 @@ const Complete = (props) => {
                     ></Notification>
                   </div>
                   <div className="complete-container10">
-                    <Button text="Finish"></Button>
-                    <Button text="Contact us"></Button>
+                    <a className="complete-container10" href="https://up2data.io" > <Button icon="check" text="Finish"></Button> </a>
+                    <a className="complete-container10" href="https://www.up2data.io/contact" > <Button goTo="contactUs" icon="email" blanc text="Contact us"></Button> </a>
                   </div>
                 </div>
               </div>

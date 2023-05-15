@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import PropTypes from 'prop-types'
 
 import './notification.css'
 
 const Notification = (props) => {
-  const [button, setButton] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
+  const [button, setButton] = useState(props.downloadStatus)
+  const [isVisible, setIsVisible] = useState(props.isVisible)
+  const [text, setText] = useState(props.notificationTxt)
+
+
+  useEffect(() => {
+    setText(props.text)
+    setIsVisible(props.isVisible)
+    console.log('---');
+    console.log(button);
+  }, [props.isVisible]);
+
   return (
     <div className={`notification-notification ${props.rootClassName} `}>
       {isVisible && (
         <div className="notification-container">
-          <span className="notification-text">{props.text}</span>
+          <span className="notification-text">{text}</span>
           {button && (
             <span onClick={props.btn_click} className="notification-text1">
-              {props.button_text}
+              Download failed contacts!
             </span>
           )}
         </div>
