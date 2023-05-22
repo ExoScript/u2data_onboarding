@@ -10,10 +10,20 @@ import './upload.css'
 
 import Dropzone from 'react-dropzone'
 import checkFile from '../functions/fileValidation'
+import { authStatus } from '../database/app.js'
 
 
 const Upload = (props) => {
   const history = useHistory()
+  new Promise(async function (resolve) {
+    const status = await authStatus();
+    if (status) {
+      console.log(1);
+    } else {
+      history.push('/');
+      console.log(2);
+    }
+  });
   return (
     <div className="upload-container">
       <Helmet>
@@ -109,21 +119,16 @@ const Upload = (props) => {
                   <div className="upload-container14">
                     <div className="upload-container15">
                       <span className="upload-text04">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod
+                      Now we need the clients that you already have in your CRM
                       </span>
                       <span className="upload-text05">
                         <span>
-                          Lorem ipsum dolor sit amet, consetetur sadipscing
-                          elitr, sed diam nonumy eirmod tempor invidunt ut
-                          labore et dolore magna aliquyam erat,
+                        Please upload a csv of your clients. Our system will then search for all related people within your clients company.
                         </span>
                         <br></br>
                         <br></br>
                         <span>
-                          At vero eos et accusam et justo duo dolores et ea
-                          rebum. Stet clita kasd gubergren, no sea takimata
-                          sanctus est Lorem ipsum dolor sit amet
+                        As soon as we have this information, we can start the tracking of your most promising future leads.
                           <span
                             dangerouslySetInnerHTML={{
                               __html: ' ',

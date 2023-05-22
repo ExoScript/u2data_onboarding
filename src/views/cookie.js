@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
 
@@ -7,8 +7,20 @@ import TopBar from '../components/top-bar'
 import Notification from '../components/notification'
 import Button from '../components/button'
 import './cookie.css'
+import { authStatus } from '../database/app.js'
 
 const Cookie = (props) => {
+  const history = useHistory();
+  new Promise(async function (resolve) {
+    const status = await authStatus();
+    if (status) {
+      console.log(1);
+    } else {
+      history.push('/');
+      console.log(2);
+    }
+  });
+
   const [sessionCookie, setSessionCookie] = useState(
     localStorage.getItem("sessionCookie") || ""
   );
@@ -83,19 +95,19 @@ const Cookie = (props) => {
                   <Notification rootClassName="notification-root-class-name3"></Notification>
                   <div className="cookie-container12">
                     <Button
-                      goTo="checkCookie"
+                      goTo="complete"
                       icon="right"
-                      text="Check Cookie"
+                      text="Next"
                       rootClassName="button-root-class-name7"
                     ></Button>
-                    <Button
+                    {/* <Button
                     onClick={test}
                       goTo="cookie-more"
                       icon="more"
                       blanc="true"
                       text="Invite"
                       rootClassName="button-root-class-name8"
-                    ></Button>
+                    ></Button> */}
                   </div>
                 </div>
               </div>
@@ -104,23 +116,22 @@ const Cookie = (props) => {
                   <div className="cookie-container15">
                     <div className="cookie-container16">
                       <span className="cookie-text3">
-                        Your LinkedIn session cookie.
+                      Your LinkedIn session cookie.
                       </span>
                       <span className="cookie-text4">
-                        To automate actions on your behalf, PhantomBuster
-                        connects to your LinkedIn account using your session
-                        cookie.
+                      To automate actions on your behalf, 
+                      Up2Data connects to your LinkedIn account using your session cookie.
                       </span>
                       <span className="cookie-text5">
-                        Every time you log into LinkedIn on your browser, a new
-                        cookie is created for that &quot;session.&quot;
+                      Every time you log into LinkedIn on your browser, 
+                      a new cookie is created for that "session".
                       </span>
                       <span className="cookie-text6">
-                        If you log out or are disconnected, the cookie expires.
+                      If you log out or you get disconnected, the cookie expires.
                       </span>
                       <span className="cookie-text7">
-                        Download the extension to automatically read your
-                        LinkedIn session cookie and update it when it changes.
+                      Download the extension to automatically read your LinkedIn 
+                      session cookie and update it when it changes.
                         <span
                           dangerouslySetInnerHTML={{
                             __html: ' ',

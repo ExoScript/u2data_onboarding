@@ -5,15 +5,15 @@ import PropTypes from 'prop-types'
 import './checkbox.css'
 
 const Checkbox = (props) => {
-  let test = localStorage.getItem("checkBox") || ''
-  const [checkBox, setCheckBox] = useState(test.includes(props.id));
+  let check = localStorage.getItem("checkBox") || ''
+  const [checkBox, setCheckBox] = useState(check.includes(props.id));
   const event = () => {
-    test = localStorage.getItem("checkBox") || ''
-    setCheckBox(!test.includes(props.id))
-    if (!test.includes(props.id)) {
-      localStorage.setItem("checkBox", test + props.id);
+    check = localStorage.getItem("checkBox") || ''
+    setCheckBox(!check.includes(props.id))
+    if (!check.includes(props.id)) {
+      localStorage.setItem("checkBox", check + props.id);
     } else {
-      localStorage.setItem("checkBox", test.replace(props.id, ''));
+      localStorage.setItem("checkBox", check.replace(props.id, ''));
     }
   };
 

@@ -9,8 +9,7 @@ import Notification from '../components/notification'
 import Button from '../components/button'
 import './login.css'
 
-import authStatus from '../database/app.js'
-
+import {authStatus} from '../database/app.js'
 
 const Login = (props) => {
   const history = useHistory();
@@ -70,8 +69,7 @@ const Login = (props) => {
         console.log('Secret Key is missing');
       }
     }
-  }
-
+  };
 
 
   return (

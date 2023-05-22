@@ -5,6 +5,7 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import PropTypes from 'prop-types'
 
 import './button.css'
+import { update_database } from '../database/app'
 
 
 const Button = (props) => {
@@ -18,7 +19,9 @@ const Button = (props) => {
     setLoading(props.loading)
   }, [props.loading, props.goTo]);
 
-  const click_event = () => {
+  const click_event = async () => {
+   
+    
     switch (props.goTo) {
       case "details":
         history.push("/user-details")
@@ -59,6 +62,7 @@ const Button = (props) => {
         break;
       default:
     }
+    
   }
   return (
     <div className={`button-button ${props.rootClassName} `}>

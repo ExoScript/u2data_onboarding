@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+
 
 import { Helmet } from 'react-helmet'
 
@@ -9,6 +10,23 @@ import Button from '../components/button'
 import './cookie-more.css'
 
 const CookieMore = (props) => {
+  const history = useHistory();
+  const [fullName, setFullName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+
+  const eventChange = (event) => {
+    const id = event.target.id
+    switch (id) {
+      case 'inviteName':
+        setFullName(event.target.value);
+        break;
+      case 'inviteEmail':
+        setEmailAddress(event.target.value);
+        break;
+      default:
+    }
+  }
+
   return (
     <div className="cookie-more-container">
       <Helmet>
@@ -45,6 +63,9 @@ const CookieMore = (props) => {
                       <span className="cookie-more-text02">Full Name</span>
                     </div>
                     <input
+                      id="inviteName"
+                      value={fullName}
+                      onChange={eventChange}
                       type="text"
                       className="cookie-more-textinput input"
                     />
@@ -55,6 +76,9 @@ const CookieMore = (props) => {
                       <span className="cookie-more-text03">Email Address</span>
                     </div>
                     <input
+                      id="inviteEmail"
+                      value={emailAddress}
+                      onChange={eventChange}
                       type="text"
                       className="cookie-more-textinput1 input"
                     />

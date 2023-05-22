@@ -21,11 +21,11 @@ async function checkFile(acceptedFiles) {
 
                 var success = 0
                 var failed = 0
-                const array = []
+                const obj = {}
 
                 for (let data of result) {
                     if (data.company_name && data.first_name && data.last_name && data.company_address) {
-                        array.push(
+                        obj[data.company_name] = 
                             {
                                 company_name: data.company_name,
                                 first_name: data.first_name,
@@ -33,13 +33,13 @@ async function checkFile(acceptedFiles) {
                                 company_address: data.company_address,
                                 company_website: data.company_website || ""
                             }
-                        );
+                        ;
                         success++
                     } else {
                         failed++
                     };
                 };
-                localStorage.setItem("clientContacts", JSON.stringify(array));
+                localStorage.setItem("clientContacts", JSON.stringify(obj));
                 localStorage.setItem("fileResult", JSON.stringify({ success: success, failed: failed }));
                 resolve(true)
 

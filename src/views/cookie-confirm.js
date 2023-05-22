@@ -67,26 +67,16 @@ const CookieConfirm = (props) => {
                   <div className="cookie-confirm-container12">
                     <div className="cookie-confirm-container13">
                       <span className="cookie-confirm-text3">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod
+                      Everything looks great!
                       </span>
                       <span className="cookie-confirm-text4">
                         <span>
-                          Lorem ipsum dolor sit amet, consetetur sadipscing
-                          elitr, sed diam nonumy eirmod tempor invidunt ut
-                          labore et dolore magna aliquyam erat,
+                        Thank you for providing us with you session cookie. 
                         </span>
-                        <br></br>
-                        <br></br>
+                      </span>
+                      <span className="cookie-confirm-text4">
                         <span>
-                          At vero eos et accusam et justo duo dolores et ea
-                          rebum. Stet clita kasd gubergren, no sea takimata
-                          sanctus est Lorem ipsum dolor sit amet
-                          <span
-                            dangerouslySetInnerHTML={{
-                              __html: ' ',
-                            }}
-                          />
+                        Now our part starts and we do the analysis for you. 
                         </span>
                       </span>
                     </div>

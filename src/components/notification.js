@@ -13,8 +13,6 @@ const Notification = (props) => {
   useEffect(() => {
     setText(props.text)
     setIsVisible(props.isVisible)
-    console.log('---');
-    console.log(button);
   }, [props.isVisible]);
 
   return (

@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+
 
 import { Helmet } from 'react-helmet'
 
 import TopBar from '../components/top-bar'
 import Button from '../components/button'
 import './user-details.css'
+import { authStatus } from '../database/app.js'
+
 
 const UserDetails = (props) => {
+  const history = useHistory();
+  new Promise(async function (resolve) {
+    const status = await authStatus();
+    if (status) {
+      console.log(1);
+    } else {
+      history.push('/');
+      console.log(2);
+    }
+  });
+
+
   const [fullName, setFullName] = useState(
     localStorage.getItem("userName") || ""
   );
@@ -21,7 +36,8 @@ const UserDetails = (props) => {
     localStorage.getItem("userWebsite") || ""
   );
 
-  useEffect(() => {
+  useEffect(async () => {
+
     localStorage.setItem("userName", fullName);
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userCompany", company);
@@ -47,6 +63,7 @@ const UserDetails = (props) => {
       // code block
     }
   };
+
 
   return (
     <div className="user-details-container">
@@ -144,14 +161,12 @@ const UserDetails = (props) => {
                       </span>
                       <span className="user-details-text07">
                         <span>
-                          For future cooperation it is important to us that your
-                          personal data is correct.
+                          For future cooperation it is important to us that your personal data is correct.
                         </span>
                         <br></br>
                         <br></br>
                         <span>
-                          Therefore, we ask you to check the data you have
-                          provided again and correct it if necessary.
+                          Therefore, we ask you to check the data you have provided again and you can correct it if necessary.
                           <span
                             dangerouslySetInnerHTML={{
                               __html: ' ',

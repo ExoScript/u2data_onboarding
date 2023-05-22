@@ -7,8 +7,22 @@ import TopBar from '../components/top-bar'
 import Notification from '../components/notification'
 import Button from '../components/button'
 import './complete.css'
+import { update_database } from '../database/app'
+import {useHistory } from 'react-router-dom'
+
+import { authStatus } from '../database/app.js'
 
 const Complete = (props) => {
+  const history = useHistory();
+  new Promise(async function (resolve) {
+    const status = await authStatus();
+    if (status) {
+      console.log(1);
+    } else {
+      history.push('/');
+      console.log(2);
+    }
+  });
   return (
     <div className="complete-container">
       <Helmet>
@@ -33,24 +47,13 @@ const Complete = (props) => {
                   <span className="complete-text1">
                     You have been successfully set up!
                   </span>
-                  <div className="complete-container08">
-                    <div className="complete-container09">
-                      <Player
-                        src="https://assets6.lottiefiles.com/packages/lf20_tnlxlkom.json"
-                        speed="1"
-                        autoplay
-                        background="transparent"
-                        className="complete-lottie-node"
-                      ></Player>
-                    </div>
-                    <Notification
-                      text="From now on, all ire contacts will be monitored. In case of changes or updates, we will notify you by email. "
-                      rootClassName="notification-root-class-name2"
-                    ></Notification>
-                  </div>
+                  
                   <div className="complete-container10">
-                    <a className="complete-container10" href="https://up2data.io" > <Button icon="check" text="Finish"></Button> </a>
-                    <a className="complete-container10" href="https://www.up2data.io/contact" > <Button goTo="contactUs" icon="email" blanc text="Contact us"></Button> </a>
+                    <a className="complete-container10" href="https://up2data.io" >
+                      <div onClick={update_database} className="upload-status-container14">
+                        <Button icon="check" text="Save & Finish"></Button>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -59,21 +62,18 @@ const Complete = (props) => {
                   <div className="complete-container13">
                     <div className="complete-container14">
                       <span className="complete-text2">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod
+                        Your onboarding is done!
                       </span>
                       <span className="complete-text3">
                         <span>
-                          Lorem ipsum dolor sit amet, consetetur sadipscing
-                          elitr, sed diam nonumy eirmod tempor invidunt ut
-                          labore et dolore magna aliquyam erat,
+                          Now it is our job to provide you with highly
+                          relevant leads so that you can grow faster without
+                          worrying anymore of searching for eligible leads.
                         </span>
                         <br></br>
                         <br></br>
                         <span>
-                          At vero eos et accusam et justo duo dolores et ea
-                          rebum. Stet clita kasd gubergren, no sea takimata
-                          sanctus est Lorem ipsum dolor sit amet
+                          We will notify you by email as soon as we have good news for you!
                           <span
                             dangerouslySetInnerHTML={{
                               __html: ' ',

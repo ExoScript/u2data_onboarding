@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
 
@@ -7,10 +7,21 @@ import TopBar from '../components/top-bar'
 import Notification from '../components/notification'
 import Button from '../components/button'
 import './upload-status.css'
+import { authStatus } from '../database/app.js'
 
 
 
 const UploadStatus = (props) => {
+  const history = useHistory();
+  new Promise(async function (resolve) {
+    const status = await authStatus();
+    if (status) {
+      console.log(1);
+    } else {
+      history.push('/');
+      console.log(2);
+    }
+  });
 
   const fileResult = JSON.parse(localStorage.getItem("fileResult"))
   let statusTxt = ''
@@ -19,7 +30,7 @@ const UploadStatus = (props) => {
   if (fileResult.failed >= 1) {
     downloadStatus = true
     statusTxt = `${fileResult.failed} contacts detected as incorrect. Please edit your file and upload it again.`
-  } 
+  }
   if (fileResult.failed == 1) {
     downloadStatus = true
     statusTxt = `${fileResult.failed} contact detected as incorrect. Please edit your file and upload it again.`
@@ -83,13 +94,13 @@ const UploadStatus = (props) => {
                     rootClassName="notification-root-class-name1"
                   ></Notification>
                   <div className="upload-status-container14">
-                    <Button
-                      goTo="favorite"
-                      icon="right"
-                      text="Next"
-                      rootClassName="button-root-class-name4"
-                    >
-                    </Button>
+                      <Button
+                        goTo="favorite"
+                        icon="right"
+                        text="Save & Next"
+                        rootClassName="button-root-class-name4"
+                      >
+                      </Button>
                     <Button
                       goTo="upload"
                       icon="upload"

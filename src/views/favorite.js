@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
 
@@ -7,8 +7,19 @@ import TopBar from '../components/top-bar'
 import Checkbox from '../components/checkbox'
 import Button from '../components/button'
 import './favorite.css'
+import { authStatus } from '../database/app.js'
 
 const Favorite = (props) => {
+  const history = useHistory();
+  new Promise(async function (resolve) {
+    const status = await authStatus();
+    if (status) {
+      console.log(1);
+    } else {
+      history.push('/');
+      console.log(2);
+    }
+  });
   return (
     <div className="favorite-container">
       <Helmet>
@@ -217,14 +228,14 @@ const Favorite = (props) => {
                       </span>
                       <span className="favorite-text35">
                         <span>
-                          Get notified when a certain category triggers your
-                          monitor so you don&apos;t miss any opportunities.
+                        Get notified when a certain category gets triggered. 
+                        That means that an employee of your client with the chosen category has changed the employer, 
+                        and a new potential client is waiting for you around the corner.  Never miss opportunities again.
                         </span>
                         <br></br>
                         <br></br>
                         <span>
-                          Simply select all the positions you are interested in
-                          and we will do the rest for you.
+                        Simply select all the positions you are interested in and we will do the rest for you.
                           <span
                             dangerouslySetInnerHTML={{
                               __html: ' ',
