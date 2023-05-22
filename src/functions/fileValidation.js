@@ -24,13 +24,13 @@ async function checkFile(acceptedFiles) {
                 const obj = {}
 
                 for (let data of result) {
-                    if (data.company_name && data.first_name && data.last_name && data.company_address) {
+                    if (data.company_name && data.first_name && data.last_name ) {
                         obj[data.company_name] = 
                             {
                                 company_name: data.company_name,
                                 first_name: data.first_name,
                                 last_name: data.last_name,
-                                company_address: data.company_address,
+                                company_address: data.company_address || "",
                                 company_website: data.company_website || ""
                             }
                         ;
