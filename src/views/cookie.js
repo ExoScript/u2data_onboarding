@@ -12,7 +12,7 @@ import { authStatus } from '../database/app.js'
 const Cookie = (props) => {
   const history = useHistory();
   new Promise(async function (resolve) {
-    const status = await authStatus();
+    const status = await authStatus({check:true});
     if (status) {
       console.log(1);
     } else {

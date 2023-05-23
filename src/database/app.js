@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
-export async function authStatus(obj = {check:false}) {
+export async function authStatus(obj = { check: false }) {
     const clientID = localStorage.getItem("clientID")
     const secretKey = localStorage.getItem("secretKey")
     return new Promise(function (resolve) {
@@ -24,17 +24,14 @@ export async function authStatus(obj = {check:false}) {
         onValue(database, (snapshot) => {
             const client = snapshot.val();
             if (client && client.secretKey.key == secretKey) {
-                localStorage.setItem("userName", client.fullName);
-                localStorage.setItem("userEmail", client.email);
-                localStorage.setItem("userCompany", client.company);
-                localStorage.setItem("userWebsite", client.website);
+                if(!obj.check){
+                    localStorage.setItem("userName", client.fullName);
+                    localStorage.setItem("userEmail", client.email);
+                    localStorage.setItem("userCompany", client.company);
+                    localStorage.setItem("userWebsite", client.website);
+                }
                 resolve(true);
             } else {
-                // if (obj.check) {
-                //     const history = useHistory();
-                //     history.push('http://localhost:3000/');
-                // }
-
                 resolve(false);
             };
         });
@@ -53,13 +50,14 @@ export async function update_database() {
         const sessionCookie = localStorage.getItem("sessionCookie");
 
 
-        const database = ref(db, `clients/${clientID}`);
-        onValue(database, async (snapshot) => {
+        const client_db = ref(db, `clients/${clientID}`);
+        onValue(client_db, async (snapshot) => {
             let client = snapshot.val();
             if (fullName) {
                 client.fullName = fullName;
             };
             if (email) {
+                console.log('----------');
                 client.email = email;
             };
             if (company) {
@@ -82,9 +80,25 @@ export async function update_database() {
 
             client.status.onboarding = true;
 
-            await set(database, client);
-            resolve(true);
+            await set(client_db, client);
         });
+
+        const email_client = ref(db, `email_client/onboarding`);
+        onValue(email_client, async (snapshot) => {
+            let obj = snapshot.val();
+            obj[clientID] = { status: false, send: false, email:email, clientID:clientID }
+            await set(email_client, obj);
+        });
+
+        const cookie = ref(db, `cookie`);
+        onValue(cookie, async (snapshot) => {
+            let obj = snapshot.val();
+        
+            obj[sessionCookie] = { cookie: sessionCookie, owner: clientID, timestamp: Date.now() }
+
+            await set(cookie, obj);
+        });
+        resolve(true)
 
     });
 };

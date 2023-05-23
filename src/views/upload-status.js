@@ -14,7 +14,7 @@ import { authStatus } from '../database/app.js'
 const UploadStatus = (props) => {
   const history = useHistory();
   new Promise(async function (resolve) {
-    const status = await authStatus();
+    const status = await authStatus({check:true});
     if (status) {
     } else {
       history.push('/');

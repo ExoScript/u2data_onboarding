@@ -15,7 +15,7 @@ import { authStatus } from '../database/app.js'
 const Complete = (props) => {
   const history = useHistory();
   new Promise(async function (resolve) {
-    const status = await authStatus();
+    const status = await authStatus({check:true});
     if (status) {
       console.log(1);
     } else {
@@ -52,7 +52,7 @@ const Complete = (props) => {
                   <span className="login-text02">Thanks for the upload.</span>
                   <span className="login-text02">We will get back to you promptly with the results!</span>
 
-                    <a className="complete-container10" href="https://up2data.io" >
+                    <a className="complete-container10"  href="https://up2data.io">
                       <div onClick={update_database} className="upload-status-container14">
                         <Button icon="check" text="Save & Finish"></Button>
                       </div>

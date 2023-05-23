@@ -13,15 +13,12 @@ import { authStatus } from '../database/app.js'
 const UserDetails = (props) => {
   const history = useHistory();
   new Promise(async function (resolve) {
-    const status = await authStatus();
+    const status = await authStatus({check:true});
     if (status) {
-      console.log(1);
     } else {
       history.push('/');
-      console.log(2);
     }
   });
-
 
   const [fullName, setFullName] = useState(
     localStorage.getItem("userName") || ""

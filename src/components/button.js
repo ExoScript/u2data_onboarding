@@ -55,7 +55,7 @@ const Button = (props) => {
         }
         break;
       case "homepage":
-        history.push("https://up2data.io")
+        // history.push("https://up2data.io")
         break;
       case "complete":
         history.push("/complete")
