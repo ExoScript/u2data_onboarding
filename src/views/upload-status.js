@@ -16,10 +16,8 @@ const UploadStatus = (props) => {
   new Promise(async function (resolve) {
     const status = await authStatus();
     if (status) {
-      console.log(1);
     } else {
       history.push('/');
-      console.log(2);
     }
   });
 
@@ -39,6 +37,12 @@ const UploadStatus = (props) => {
     downloadStatus = false
     statusTxt = `All their contact are fully verified. No data errors were found.`
   }
+
+  function getPercentage(result, total) {
+    var percentage = (result / total) * 100;
+    console.log(percentage);
+    return percentage+"%";
+}
 
   return (
     <div className="upload-status-container">
@@ -82,7 +86,7 @@ const UploadStatus = (props) => {
                       <span className="upload-status-text04">{fileResult.success + fileResult.failed}</span>
                     </div>
                     <div className="upload-status-container11">
-                      <div className="upload-status-container12"></div>
+                      <div className="upload-status-container12" style={{width:getPercentage(fileResult.success, fileResult.success + fileResult.failed)}}></div>
                       <div className="upload-status-container13"></div>
                     </div>
                   </div>
@@ -97,7 +101,7 @@ const UploadStatus = (props) => {
                       <Button
                         goTo="favorite"
                         icon="right"
-                        text="Save & Next"
+                        text="Next"
                         rootClassName="button-root-class-name4"
                       >
                       </Button>

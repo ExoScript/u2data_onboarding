@@ -20,11 +20,11 @@ const Notification = (props) => {
       {isVisible && (
         <div className="notification-container">
           <span className="notification-text">{text}</span>
-          {button && (
+          {/* {button && (
             <span onClick={props.btn_click} className="notification-text1">
               Download failed contacts!
             </span>
-          )}
+          )} */}
         </div>
       )}
     </div>

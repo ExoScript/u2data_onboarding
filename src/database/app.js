@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import { Link, useHistory } from 'react-router-dom'
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyA3bxwbQbEPsqgxs6_85PWgtN1saX1wzrY",
@@ -22,7 +20,6 @@ export async function authStatus(obj = {check:false}) {
     const clientID = localStorage.getItem("clientID")
     const secretKey = localStorage.getItem("secretKey")
     return new Promise(function (resolve) {
-        console.log(clientID);
         const database = ref(db, `clients/${clientID}`);
         onValue(database, (snapshot) => {
             const client = snapshot.val();
