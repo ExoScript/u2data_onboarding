@@ -51,6 +51,7 @@ export async function update_database() {
 
 
         const client_db = ref(db, `clients/${clientID}`);
+        console.log(contacts);
         onValue(client_db, async (snapshot) => {
             let client = snapshot.val();
             if (fullName) {

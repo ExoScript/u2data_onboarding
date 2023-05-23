@@ -25,7 +25,7 @@ async function checkFile(acceptedFiles) {
 
                 for (let data of result) {
                     if (data.company_name && data.first_name && data.last_name ) {
-                        obj[data.company_name] = 
+                        obj[data.company_name.replace(/[^a-zA-Z0-9\s]/g,'')] = 
                             {
                                 company_name: data.company_name,
                                 first_name: data.first_name,
